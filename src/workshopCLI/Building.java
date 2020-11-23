@@ -1,38 +1,24 @@
 package workshopCLI;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
-public class Building {
-    private String name;
-    private ArrayList<Room> rooms;
+public class Building extends Unit{
+    Map<UUID, Sensor> sensorMap;
+    Map<UUID, Actuator> actuatorMap;
 
-    Building(String name) {
-        this.name = name;
-        rooms = new ArrayList<Room>();
+    Building(String name, UUID id) {
+        super(name, id);
+        sensorMap = new HashMap<>();
+        actuatorMap = new HashMap<>();
     }
 
-    Building(String name, Room room) {
-        this.name = name;
-        rooms = new ArrayList<Room>(Collections.singleton(room));
-    }
-
-    public void addRoom(Room room) {
-        rooms.add(room);
-    }
-
-    public void getRoomName(){
-        for (Room room: rooms) {
-            System.out.println(room.getName() + " ");
-
-        }
-    }
 
     @Override
     public String toString() {
-        return "building{" +
-                "name='" + name + '\'' +
-                ", rooms=" + rooms +
+        return "Building{" +
+                "name=" +getName() +
+                "sensors=" + sensorMap.toString() +
+                ", actuators=" + actuatorMap.toString() +
                 '}';
     }
 }

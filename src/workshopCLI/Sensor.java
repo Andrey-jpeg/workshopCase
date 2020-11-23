@@ -1,11 +1,12 @@
 package workshopCLI;
 
-public abstract class Sensor {
-    private String name;
+import java.util.UUID;
+
+public abstract class Sensor extends Unit{
     private double value;
 
-    public Sensor(String name, double value) {
-        this.name = name;
+    public Sensor(String name, double value, UUID id) {
+        super(name, id);
         this.value = value;
     }
 
@@ -13,22 +14,19 @@ public abstract class Sensor {
         return value;
     }
 
-    public String getName() {
-        return name;
-    }
 
     @Override
     public String toString() {
         return "Sensor{" +
-                "name='" + name + '\'' +
+                "name='" + getName() + '\'' +
                 ", value=" + value +
                 '}';
     }
 }
 
 class Co2Sensor extends Sensor{
-    public Co2Sensor(String name, double value) {
-        super(name, value);
+    public Co2Sensor(String name, double value, UUID id) {
+        super(name, value, id);
     }
 
     @Override
@@ -41,8 +39,8 @@ class Co2Sensor extends Sensor{
 }
 
 class TempSensor extends  Sensor {
-    public TempSensor(String name, double value) {
-        super(name, value);
+    public TempSensor(String name, double value, UUID id) {
+        super(name, value, id);
     }
 
     @Override

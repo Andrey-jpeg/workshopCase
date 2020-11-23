@@ -1,20 +1,18 @@
 package workshopCLI;
 
-public abstract class Actuator {
+import java.util.UUID;
+
+public abstract class Actuator extends Unit{
     private String name;
     private double value;
 
-    Actuator(String name, double value) {
-        this.name = name;
+    Actuator(String name, double value, UUID id) {
+        super(name, id);
         this.value = value;
     }
 
     public void setValue(double newValue) {
         this.value = newValue;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public double getValue() {
@@ -23,8 +21,8 @@ public abstract class Actuator {
 }
 
 class Ventilator extends Actuator {
-    Ventilator(String name, double value){
-        super(name, value);
+    Ventilator(String name, double value, UUID id){
+        super(name, value, id);
     }
 
 
@@ -39,12 +37,6 @@ class Ventilator extends Actuator {
                 "name='" + getName() + '\'' +
                 ", value=" + getValue() +
                 '}';
-    }
-
-    public static void main(String[] args) {
-        Ventilator v1 = new Ventilator("bedroomVentilator", 69);
-
-        System.out.println(v1.toString());
     }
 }
 

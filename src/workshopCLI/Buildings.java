@@ -1,24 +1,55 @@
 package workshopCLI;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
-public class Buildings {
-    private ArrayList<Building> buildings;
+public class Buildings implements IBuildingManagementSystem {
+    HashMap<UUID, Building> buildingHashMap;
 
     Buildings(){
-        buildings = new ArrayList<Building>();
+    buildingHashMap = new HashMap<>();
     }
 
-    public ArrayList<Building> getBuildings(){
-        return buildings;
+    @Override
+    public Map<UUID, String> getBuildingInformation() {
+        return buildingHashMap;
     }
 
-    public void removeBuildings(Building building){
-        buildings.remove(building);
+    @Override
+    public Map<UUID, String> getSensorInformation(UUID buildingId) {
+        return null;
     }
 
-    public void addBuildings(Building building){
-        buildings.add(building);
+    @Override
+    public Map<UUID, String> getActuatorInformation(UUID buildingId) {
+        return null;
+    }
+
+    @Override
+    public UUID addTemperatureSensor(UUID buildingId, String name) {
+        return null;
+    }
+
+    @Override
+    public UUID addCo2Sensor(UUID buildingId, String name) {
+        return null;
+    }
+
+    @Override
+    public void removeSensor(UUID buildingId, UUID sensorId) {
+
+    }
+
+    @Override
+    public UUID addVentilationActuator(UUID buildingId, String name) {
+        return null;
+    }
+
+    @Override
+    public void removeActuator(UUID buildingId, UUID actuatorId) {
+
     }
 
     @Override
@@ -26,15 +57,5 @@ public class Buildings {
         return "{" +
                 "buildings=" + buildings +
                 '}';
-    }
-
-    public static void main(String[] args) {
-        Room room = new Room();
-        Building building = new Building("Brenderupvej 122", room);
-        Buildings buildings = new Buildings();
-
-        buildings.addBuildings(building);
-        building.getRoomName();
-
     }
 }
