@@ -5,8 +5,8 @@ import java.util.UUID;
 public abstract class Sensor extends Unit{
     private double value;
 
-    public Sensor(String name, double value, UUID id) {
-        super(name, id);
+    public Sensor(String name, double value) {
+        super(name);
         this.value = value;
     }
 
@@ -25,8 +25,8 @@ public abstract class Sensor extends Unit{
 }
 
 class Co2Sensor extends Sensor{
-    public Co2Sensor(String name, double value, UUID id) {
-        super(name, value, id);
+    public Co2Sensor(String name, double value) {
+        super(name, value);
     }
 
     @Override
@@ -39,8 +39,8 @@ class Co2Sensor extends Sensor{
 }
 
 class TempSensor extends  Sensor {
-    public TempSensor(String name, double value, UUID id) {
-        super(name, value, id);
+    public TempSensor(String name, double value) {
+        super(name, value);
     }
 
     @Override

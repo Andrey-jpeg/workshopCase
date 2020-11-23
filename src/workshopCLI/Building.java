@@ -6,8 +6,8 @@ public class Building extends Unit{
     Map<UUID, Sensor> sensorMap;
     Map<UUID, Actuator> actuatorMap;
 
-    Building(String name, UUID id) {
-        super(name, id);
+    Building(String name) {
+        super(name);
         sensorMap = new HashMap<>();
         actuatorMap = new HashMap<>();
     }
@@ -15,10 +15,10 @@ public class Building extends Unit{
 
     @Override
     public String toString() {
-        return "Building{" +
-                "name=" +getName() +
-                "sensors=" + sensorMap.toString() +
-                ", actuators=" + actuatorMap.toString() +
+        return " {" +
+                " name = " +getName() +
+                ", sensors = " + sensorMap.toString() +
+                " and actuators = " + actuatorMap.toString() +
                 '}';
     }
 }

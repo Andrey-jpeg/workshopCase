@@ -6,8 +6,8 @@ public abstract class Actuator extends Unit{
     private String name;
     private double value;
 
-    Actuator(String name, double value, UUID id) {
-        super(name, id);
+    Actuator(String name, double value) {
+        super(name);
         this.value = value;
     }
 
@@ -21,8 +21,8 @@ public abstract class Actuator extends Unit{
 }
 
 class Ventilator extends Actuator {
-    Ventilator(String name, double value, UUID id){
-        super(name, value, id);
+    Ventilator(String name, double value){
+        super(name, value);
     }
 
 

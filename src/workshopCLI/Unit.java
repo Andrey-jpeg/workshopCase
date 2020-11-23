@@ -4,16 +4,16 @@ import java.util.UUID;
 
 public abstract class Unit {
     private String name;
-    private UUID id;
+    private UUID id = UUID.randomUUID();
 
     Unit(){
         this.name = "";
-        this.id = UUID.randomUUID();
+        this.id = getId();
     }
 
-    public Unit(String name, UUID id) {
+    public Unit(String name) {
         this.name = name;
-        this.id = id;
+        id = getId();
     }
 
     public UUID getId() {
